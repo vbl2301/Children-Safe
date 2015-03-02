@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Children-Safe</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_adm_login">AdmLoginActivity</string>
+    <string name="title_activity_adm_main">AdmMainActivity</string>
+    <string name="title_activity_cad_pais">CadPaisActivity</string>
+    <string name="title_activity_apps_instalados">AppsInstaladosActivity</string>
+    <string name="title_activity_apps_bloqueados">AppsBloqueadosActivity</string>
+
+</resources>
