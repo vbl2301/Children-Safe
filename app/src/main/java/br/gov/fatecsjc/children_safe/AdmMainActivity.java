@@ -1,10 +1,11 @@
 package br.gov.fatecsjc.children_safe;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
 
 public class AdmMainActivity extends ActionBarActivity {
 
@@ -36,4 +37,20 @@ public class AdmMainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void btnBloquearAppsClick_admMain(View view){
+        Intent intent = new Intent(this, AppsInstaladosActivity.class);
+        startActivity(intent);
+    }
+
+    public void btnDesbloquearAppsClick_admMain(View view){
+        Intent intent = new Intent(this, AppsBloqueadosActivity.class);
+        startActivity(intent);
+    }
+
+    public void btnDeslogarClick_admMain(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 }

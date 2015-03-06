@@ -25,7 +25,7 @@
             android:label="@string/title_activity_adm_main" >
         </activity>
         <activity
-            android:name=".CadPaisActivity"
+            android:name=".CadUserActivity"
             android:label="@string/title_activity_cad_pais" >
         </activity>
         <activity

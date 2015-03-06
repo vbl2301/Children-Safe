@@ -4,6 +4,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import br.gov.fatecsjc.children_safe.model.AppInfo;
+import br.gov.fatecsjc.children_safe.model.db.dao.AppBloqueadoDao;
 
 
 public class AppsBloqueadosActivity extends ActionBarActivity {
@@ -12,8 +18,13 @@ public class AppsBloqueadosActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apps_bloqueados);
-    }
 
+        ListView lsvApps = (ListView) findViewById(R.id.lsvApps_appsBloqueados);
+
+        ListAppsAdapter appsAdapter = new ListAppsAdapter(this, getBlockedApps());
+        lsvApps.setAdapter(appsAdapter);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,4 +47,10 @@ public class AppsBloqueadosActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private ArrayList<AppInfo> getBlockedApps(){
+        AppBloqueadoDao dao = new AppBloqueadoDao(this);
+        return dao.buscar();
+    }
+
 }

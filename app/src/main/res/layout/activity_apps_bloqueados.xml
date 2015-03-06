@@ -12,20 +12,19 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Aplicativos Bloqueados"
-        android:id="@+id/txvTitulo"
         android:layout_gravity="center_horizontal" />
 
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight=".60"
-        android:id="@+id/lsvBloquados"/>
+        android:id="@+id/lsvApps_appsBloqueados"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Desbloquear Selecionados"
-        android:id="@+id/btnDesbloquearApps"
+        android:id="@+id/btnDesbloquear_appsBloqueados"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

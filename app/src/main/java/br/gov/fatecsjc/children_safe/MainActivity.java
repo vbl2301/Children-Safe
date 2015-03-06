@@ -1,9 +1,17 @@
 package br.gov.fatecsjc.children_safe;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import br.gov.fatecsjc.children_safe.model.AppInfo;
+import br.gov.fatecsjc.children_safe.model.db.dao.AppBloqueadoDao;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,8 +20,13 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+        ListView lsvApps = (ListView) findViewById(R.id.lsvApps);
+
+        ListAppsAdapter appsAdapter = new ListAppsAdapter(this, getBlockedApps());
+        lsvApps.setAdapter(appsAdapter);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,4 +49,15 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void btnPainelAdmClick(View view){
+        Intent intent = new Intent(this, AdmLoginActivity.class);
+        startActivity(intent);
+    }
+
+    private ArrayList<AppInfo> getBlockedApps(){
+        AppBloqueadoDao dao = new AppBloqueadoDao(this);
+        return dao.buscar();
+    }
+
 }

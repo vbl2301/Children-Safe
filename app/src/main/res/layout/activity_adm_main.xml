@@ -12,17 +12,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bloquear Aplicativos"
-        android:id="@+id/btnBloquearApps" />
+        android:id="@+id/btnBloquearApps_admMain"
+        android:onClick="btnBloquearAppsClick_admMain" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Desbloquear Aplicativos"
-        android:id="@+id/btnDesbloquearApps" />
+        android:id="@+id/btnDesbloquearApps__admMain"
+        android:onClick="btnDesbloquearAppsClick_admMain" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deslogar"
-        android:id="@+id/btnDeslogar" />
+        android:id="@+id/btnDeslogar_admMain"
+        android:onClick="btnDeslogarClick_admMain" />
 </LinearLayout>

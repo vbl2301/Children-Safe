@@ -12,13 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Usuario:"
-        android:id="@+id/txvUsuario" />
+        android:text="Login"
+        android:id="@+id/txvLogin" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText" />
+        android:id="@+id/edtLogin_admLogin" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2" />
+        android:id="@+id/edtSenha_admLogin" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -45,7 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logar"
-            android:id="@+id/btnLogar" />
+            android:id="@+id/btnLogar"
+            android:onClick="btnLogarClick_admLogin" />
 
         <Button
             android:layout_width="wrap_content"
@@ -59,5 +60,6 @@
         android:layout_height="wrap_content"
         android:text="Cadastrar"
         android:id="@+id/btnCadastrar"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="btnCadastrarClick_admLogin" />
 </LinearLayout>

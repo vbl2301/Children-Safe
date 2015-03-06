@@ -1,6 +1,5 @@
 package br.gov.fatecsjc.children_safe;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -13,8 +12,9 @@ import br.gov.fatecsjc.children_safe.model.Usuario;
 import br.gov.fatecsjc.children_safe.model.db.dao.UsuarioDao;
 
 
-public class AdmLoginActivity extends ActionBarActivity {
+public class CadUserActivity extends ActionBarActivity {
 
+    EditText edtNome;
     EditText edtLogin;
     EditText edtSenha;
     Usuario usuario = new Usuario();
@@ -22,17 +22,18 @@ public class AdmLoginActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adm_login);
+        setContentView(R.layout.activity_cad_user);
 
-        edtLogin = (EditText) findViewById(R.id.edtLogin_admLogin);
-        edtSenha = (EditText) findViewById(R.id.edtSenha_admLogin);
+        edtNome = (EditText) findViewById(R.id.edtNome_cadUser);
+        edtLogin = (EditText) findViewById(R.id.edtLogin_cadUser);
+        edtSenha = (EditText) findViewById(R.id.edtSenha_cadUser);
+
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_adm_login, menu);
+        getMenuInflater().inflate(R.menu.menu_cad_pais, menu);
         return true;
     }
 
@@ -51,23 +52,20 @@ public class AdmLoginActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void btnCadastrarClick_admLogin(View view){
-        Intent intent = new Intent(this, CadUserActivity.class);
-        startActivity(intent);
-    }
+    public void btnCadastrarClick_cadUser(View view){
 
-    public void btnLogarClick_admLogin(View view){
+        usuario.setNome(edtNome.getText().toString());
         usuario.setLogin(edtLogin.getText().toString());
         usuario.setSenha(edtSenha.getText().toString());
 
-        UsuarioDao dao = new UsuarioDao(this);
-
-        if (dao.logar(usuario)){
-            Intent intent = new Intent(this, AdmMainActivity.class);
-            startActivity(intent);
+        if ((usuario.getNome().equals("")) || (usuario.getNome().equals("")) || (usuario.getNome().equals(""))){
+            Toast.makeText(this,"Necessário preencher todos os campos", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this,"Login ou Senha Incorretos", Toast.LENGTH_LONG).show();
+            UsuarioDao dao = new UsuarioDao(this);
+            dao.inserir(usuario);
+            Toast.makeText(this,"Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
         }
+
     }
 
 }
